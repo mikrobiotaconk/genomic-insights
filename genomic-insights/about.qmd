@@ -7,10 +7,10 @@ about:
   links:
     - icon: instagram
       text: Instagram
-      href: https://www.instagram.com/mikrobiotaconk/
+      href: https://www.instagram.com/mikrobiotaconk
     - icon: linkedin
       text: LinkedIn
-      href: https://www.linkedin.com/in/microkiota-con-k-a00a6b40b/
+      href: https://www.linkedin.com/in/microkiota-con-k-a00a6b40b
     - icon: envelope
       text: Email
       href: mailto:mikrobiotaconk@gmail.com
