@@ -1,0 +1,70 @@
+---
+title: "Título del análisis"
+subtitle: "Subtítulo descriptivo"
+description: "Descripción breve para la tarjeta del blog (1-2 frases)."
+author: "Alejandro García"
+date: "2026-05-15"
+categories: [categoria1, categoria2]
+image: "thumbnail.png"
+reading-time: true
+---
+
+```{r setup, include=FALSE}
+library(ggplot2)
+library(dplyr)
+
+# URL de la Shiny app correspondiente a este post
+APP_URL <- "https://tu-usuario.posit.cloud/nombre-de-tu-app"
+```
+
+## Contexto
+
+_Describe el dataset, el organismo y la pregunta biológica._
+
+## Metodología
+
+_Pipeline, herramientas y parámetros clave._
+
+## Resultados
+
+### Figura estática (contextual, no interactiva)
+
+```{r fig-estatica}
+# Pon aquí figuras que NO necesiten interactividad:
+# introductorias, de calidad de datos, diagramas de pipeline...
+```
+
+### Explorador interactivo
+
+Las figuras de análisis principal son interactivas en la app embebida:
+
+```{r app-embed, echo=FALSE}
+# Copia este bloque en cada post.
+# Solo cambia APP_URL en el chunk setup.
+htmltools::tags$div(
+  class = "app-embed-wrap",
+  htmltools::tags$div(
+    class = "app-embed-header",
+    htmltools::tags$span(
+      htmltools::tags$span(class = "app-dot"),
+      "App interactiva · Posit Connect"
+    ),
+    htmltools::tags$a(href=APP_URL, target="_blank",
+                      "Abrir en pantalla completa ↗")
+  ),
+  htmltools::tags$iframe(src=APP_URL, height="820px",
+                         style="width:100%; border:none;")
+)
+```
+
+## Discusión
+
+_Interpretación de resultados._
+
+## Conclusiones
+
+1. ...
+2. ...
+3. ...
+
+## Referencias

@@ -1,0 +1,107 @@
+[
+  {
+    "objectID": "posts/moving-pictures/index.html",
+    "href": "posts/moving-pictures/index.html",
+    "title": "Un viaje microscópico por el cuerpo humano",
+    "section": "",
+    "text": "16S rRNA · V4 QIIME2 Diversidad α/β Longitudinal App interactiva\nSi pudiéramos encogernos hasta el tamaño de una bacteria y recorrer el cuerpo humano como exploradores diminutos, descubriríamos algo que ningún libro de biología cuenta del todo bien: cada parte del cuerpo es un planeta distinto.\nLa lengua no se parece a la piel. La palma de la mano no se parece al intestino. Y cada rincón del cuerpo selecciona, con una precisión brutal, quién puede vivir allí.\nEn microbiología esto tiene nombre: diversidad microbiana. Y cuando la medimos con herramientas de secuenciación masiva, el cuerpo humano deja de parecer un organismo uniforme para convertirse en algo mucho más interesante:"
+  },
+  {
+    "objectID": "posts/moving-pictures/index.html#el-cuerpo-como-conjunto-de-ecosistemas",
+    "href": "posts/moving-pictures/index.html#el-cuerpo-como-conjunto-de-ecosistemas",
+    "title": "Un viaje microscópico por el cuerpo humano",
+    "section": "🌍 El cuerpo como conjunto de ecosistemas",
+    "text": "🌍 El cuerpo como conjunto de ecosistemas\nPiensa en la diferencia entre un desierto y una selva tropical. Ambos están en el mismo planeta, pero tienen distinta humedad, distinta temperatura, distintos nutrientes — y organismos completamente diferentes adaptados a cada ambiente.\nAlgo idéntico ocurre dentro de ti.\nLa piel de las manos es un entorno relativamente seco, expuesto al aire, al jabón y a cambios constantes de temperatura. Un ambiente hostil donde solo sobreviven los más resistentes — principalmente bacterias del phylum Actinobacteriota y Proteobacteria, adaptadas a condiciones áridas y alta exposición ambiental.\nLa lengua, en cambio, es otra historia. Humedad constante, nutrientes disponibles, temperatura estable, saliva, restos de alimentos y millones de interacciones químicas cada minuto. Es, microbiológicamente hablando, una auténtica selva tropical — dominada por Firmicutes y con una proporción de Fusobacteriota que no encontrarás en ningún otro sitio del cuerpo.\nY el intestino — ese gran desconocido — opera bajo sus propias reglas: un ecosistema anaerobio donde Firmicutes y Bacteroidota libran un equilibrio constante que afecta desde la digestión hasta la respuesta inmune."
+  },
+  {
+    "objectID": "posts/moving-pictures/index.html#cómo-medimos-lo-invisible",
+    "href": "posts/moving-pictures/index.html#cómo-medimos-lo-invisible",
+    "title": "Un viaje microscópico por el cuerpo humano",
+    "section": "🔬 Cómo medimos lo invisible",
+    "text": "🔬 Cómo medimos lo invisible\nPara cuantificar estas diferencias utilizamos secuenciación de alto rendimiento del gen 16S rRNA (región V4), el marcador molecular estándar en estudios de microbioma. Este gen actúa como un código de barras biológico: cada grupo de bacterias tiene una versión ligeramente diferente, lo que nos permite identificarlas sin necesidad de cultivarlas en laboratorio.\nEl pipeline de análisis siguió el flujo estándar de QIIME2:\n\n\n\n\n  Importación paired-end\n  →\n  DADA2 denoising\n  →\n  770 ASVs\n  →\n  Clasificación Silva 138\n  →\n  Rarefacción 1.080 lect.\n  →\n  Diversidad α / β en R\n\n\n\n\nEl paso de DADA2 es crítico: en lugar de agrupar secuencias en OTUs al 97% de similitud (el método clásico), infiere variantes exactas de amplicón (ASVs), resolviendo diferencias de un solo nucleótido. Esto reduce significativamente los falsos positivos y permite comparaciones entre estudios sin perder resolución taxonómica.\nLa rarefacción a 1.080 lecturas normaliza la profundidad de secuenciación entre muestras — un paso necesario para que las diferencias de diversidad que observemos sean biológicas, no un artefacto de cuántas lecturas generó cada muestra."
+  },
+  {
+    "objectID": "posts/moving-pictures/index.html#lo-que-encontramos-un-mundo-diferente-en-cada-sitio",
+    "href": "posts/moving-pictures/index.html#lo-que-encontramos-un-mundo-diferente-en-cada-sitio",
+    "title": "Un viaje microscópico por el cuerpo humano",
+    "section": "📊 Lo que encontramos: un mundo diferente en cada sitio",
+    "text": "📊 Lo que encontramos: un mundo diferente en cada sitio\nLa pregunta de partida era sencilla: ¿todas las zonas del cuerpo albergan comunidades microbianas similares? La respuesta corta es no. La larga es mucho más interesante.\n\n\n\n\n  \n    Muestras analizadas\n    34\n    2 sujetos × 4 sitios × tiempo\n  \n  \n    ASVs únicos\n    770\n    Tras DADA2 denoising\n  \n  \n    Varianza explicada\n    68%\n    PERMANOVA · sitio corporal\n  \n  \n    Shannon boca vs piel\n    +78%\n    Mayor diversidad en lengua\n  \n\n\n\n\nLa diferencia más llamativa aparece al calcular la diversidad alfa — una medida de cuántas especies distintas conviven en una misma muestra y con qué equidad. El índice de Shannon de la cavidad oral (~3.5) supera en casi un 80% al de las palmas de las manos (~2.0). Pero esto es solo el principio.\nCuando analizamos la diversidad beta — es decir, cuánto se parecen las comunidades entre muestras distintas — el resultado es todavía más rotundo. El análisis de coordenadas principales (PCoA) con disimilaridad de Bray-Curtis separa las muestras casi perfectamente por sitio corporal. Una prueba PERMANOVA confirma que el sitio anatómico explica el 68% de la variación total en la composición microbiana (R² = 0.68, p = 0.001).\nEl dato clave que merece subrayarse: el sujeto individual solo explica el 9%.\nDicho de otro modo: el microbioma de tu boca se parece más al de la boca de un desconocido que al de tu propio intestino. Somos más predecibles como hábitat que como individuos.\n\nEl sitio corporal importa más que la persona. La anatomía impone condiciones fisicoquímicas tan restrictivas que la selección microbiana converge entre individuos distintos — independientemente de su genética, dieta o estilo de vida."
+  },
+  {
+    "objectID": "posts/moving-pictures/index.html#el-microbioma-en-el-tiempo-estable-o-caótico",
+    "href": "posts/moving-pictures/index.html#el-microbioma-en-el-tiempo-estable-o-caótico",
+    "title": "Un viaje microscópico por el cuerpo humano",
+    "section": "⏱️ El microbioma en el tiempo: ¿estable o caótico?",
+    "text": "⏱️ El microbioma en el tiempo: ¿estable o caótico?\nEste estudio tiene una dimensión que los análisis de corte transversal no pueden capturar: el seguimiento longitudinal. Ambos sujetos fueron muestreados a lo largo de varios meses, lo que permite observar cómo evoluciona su microbioma en el tiempo.\nEl intestino muestra un patrón particularmente interesante: a pesar de las perturbaciones diarias — cambios de dieta, estrés, variaciones ambientales — la diversidad oscila pero tiende a recuperar un nivel propio de cada individuo. Este fenómeno se conoce como resiliencia microbiana, y es uno de los conceptos más importantes de la ecología del microbioma humano.\nTambién observamos el efecto del uso de antibióticos, registrado en los metadatos del estudio. Las muestras recogidas coincidiendo con tratamientos antibióticos muestran caídas puntuales de diversidad — una perturbación ecológica clara que, en la mayoría de los casos, el sistema consigue revertir."
+  },
+  {
+    "objectID": "posts/moving-pictures/index.html#la-boca-un-arrecife-de-coral-microscópico",
+    "href": "posts/moving-pictures/index.html#la-boca-un-arrecife-de-coral-microscópico",
+    "title": "Un viaje microscópico por el cuerpo humano",
+    "section": "👅 La boca: un arrecife de coral microscópico",
+    "text": "👅 La boca: un arrecife de coral microscópico\nLa cavidad oral merece mención especial. No es simplemente “una superficie húmeda” — es uno de los ecosistemas microbianos más densos y dinámicos del organismo, donde bacterias cooperan, compiten, forman biopelículas e intercambian genes.\nCada comida altera temporalmente ese entorno. Cada bebida cambia el pH. Cada cepillado reorganiza parcialmente la comunidad. Y aun así, el ecosistema consigue mantenerse relativamente estable. La presencia característica de Fusobacteriota — un filo prácticamente ausente en piel e intestino — es un marcador taxonómico tan claro que permite identificar muestras orales con solo mirar la composición de phyla."
+  },
+  {
+    "objectID": "posts/moving-pictures/index.html#por-qué-importa-ir-más-allá-de-hay-bacterias-aquí",
+    "href": "posts/moving-pictures/index.html#por-qué-importa-ir-más-allá-de-hay-bacterias-aquí",
+    "title": "Un viaje microscópico por el cuerpo humano",
+    "section": "🧠 Por qué importa ir más allá de “hay bacterias aquí”",
+    "text": "🧠 Por qué importa ir más allá de “hay bacterias aquí”\nLa microbiota ya no se estudia como una curiosidad biológica. Sabemos que influye en inflamación, metabolismo, inmunidad e infecciones. Pero para entender ese papel necesitamos primero responder preguntas más básicas: ¿dónde están? ¿cuántas hay? ¿cómo cambian? ¿qué las perturba?\nEste tipo de análisis — diversidad alfa, beta, composición taxonómica, seguimiento longitudinal, efecto de covariables como el uso de antibióticos — es la base sobre la que se construyen estudios clínicos más complejos. Sin este andamiaje, las correlaciones entre microbioma y enfermedad no tienen contexto ecológico en el que apoyarse."
+  },
+  {
+    "objectID": "posts/moving-pictures/index.html#explóralo-tú-mismo",
+    "href": "posts/moving-pictures/index.html#explóralo-tú-mismo",
+    "title": "Un viaje microscópico por el cuerpo humano",
+    "section": "🔍 Explóralo tú mismo",
+    "text": "🔍 Explóralo tú mismo\nEl texto cuenta la historia. Pero los datos hablan por sí solos.\nEn el explorador interactivo de abajo puedes reproducir los análisis, cambiar parámetros y ver cómo cambian las conclusiones:\n\n¿Qué índice de diversidad — Shannon, Simpson, Faith PD — muestra diferencias más marcadas entre sitios?\n¿Cómo separa el PCoA las muestras si usas UniFrac en lugar de Bray-Curtis?\n¿Se recupera la diversidad tras el uso de antibióticos si lo sigues en el tiempo?\n\n\n\n\n\nEl explorador interactivo permite cambiar el índice de diversidad, \n     la métrica de distancia, filtrar por sitio corporal o uso de \n     antibióticos — y ver cómo cambian las conclusiones en tiempo real.\n🔍  Abrir explorador interactivo\nSe abre en una nueva pestaña · Requiere conexión a Posit Connect"
+  },
+  {
+    "objectID": "posts/moving-pictures/index.html#una-última-idea",
+    "href": "posts/moving-pictures/index.html#una-última-idea",
+    "title": "Un viaje microscópico por el cuerpo humano",
+    "section": "✨ Una última idea",
+    "text": "✨ Una última idea\nQuizá la conclusión más poderosa de este análisis no es estadística. Es conceptual.\nEl cuerpo humano no es un único ecosistema. Es una colección de mundos microscópicos coexistiendo al mismo tiempo, cada uno con sus propias reglas de selección, su propia historia evolutiva y su propia respuesta a las perturbaciones.\nLa próxima vez que pases la lengua por tus dientes o apoyes la mano sobre una mesa, recuerda: miles de millones de microorganismos acaban de participar en una interacción ecológica que ocurre constantemente — y que apenas estamos empezando a entender."
+  },
+  {
+    "objectID": "posts/moving-pictures/index.html#referencias",
+    "href": "posts/moving-pictures/index.html#referencias",
+    "title": "Un viaje microscópico por el cuerpo humano",
+    "section": "Referencias",
+    "text": "Referencias\nCaporaso et al. (2011) Moving pictures of the human microbiome. Genome Biology 12:R50.\nBolyen et al. (2019) Reproducible microbiome data science using QIIME 2. Nature Biotechnology.\nCallahan et al. (2016) DADA2: High-resolution sample inference from Illumina amplicon data. Nature Methods.\nQuast et al. (2013) The SILVA ribosomal RNA gene database project. Nucleic Acids Research."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "Sobre mí",
+    "section": "",
+    "text": "Exploro el mundo invisible de los microorganismos a través de bioinformática, estadística y visualización de datos.\nTransformo datos de secuenciación masiva (metagenómica y genómica microbiana) en resultados interpretables, reproducibles y visualmente claros, conectando biología, computación y análisis estadístico."
+  },
+  {
+    "objectID": "about.html#hola-soy-mikrobiota-con-k",
+    "href": "about.html#hola-soy-mikrobiota-con-k",
+    "title": "Sobre mí",
+    "section": "",
+    "text": "Exploro el mundo invisible de los microorganismos a través de bioinformática, estadística y visualización de datos.\nTransformo datos de secuenciación masiva (metagenómica y genómica microbiana) en resultados interpretables, reproducibles y visualmente claros, conectando biología, computación y análisis estadístico."
+  },
+  {
+    "objectID": "about.html#qué-encontrarás-aquí",
+    "href": "about.html#qué-encontrarás-aquí",
+    "title": "Sobre mí",
+    "section": "Qué encontrarás aquí",
+    "text": "Qué encontrarás aquí\nCada post combina un análisis real con una app interactiva donde puedes explorar los datos tú mismo: cambiar índices de diversidad, filtrar muestras, modificar parámetros del análisis.\nLos temas principales que encontrarás son:\n\n🧬 Análisis de microbioma y metagenómica — Procesamiento de datos de secuenciación, análisis taxonómico y funcional, diversidad microbiana\n🧪 Genómica comparativa y evolución microbiana — Filogenia, variantes genómicas, análisis comparativo entre cepas y poblaciones\n📊 Estadística aplicada y modelización de datos biológicos — Diversidad alfa/beta, modelos lineales, análisis multivariante y machine learning en datos ómicos\n📈 Visualización y comunicación científica de datos complejos — Representación clara de resultados bioinformáticos para su interpretación y divulgación"
+  },
+  {
+    "objectID": "about.html#stack-técnico",
+    "href": "about.html#stack-técnico",
+    "title": "Sobre mí",
+    "section": "Stack técnico",
+    "text": "Stack técnico\n\n  \n    Bioinformática\n    QIIME2 · DADA2 · BLAST · Prokka · DIAMOND · Kraken2\n  \n  \n    Análisis & estadística\n    R (vegan, phyloseq, DESeq2)\n  \n  \n    Visualización\n    ggplot2 · Shiny · Quarto · Plotly · R Markdown"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Genomic Insights",
+    "section": "",
+    "text": "Portfolio · Bioinformática & Genómica\n    Genomic Insights\n    \n      Análisis reproducibles de microbioma, secuenciación de alto rendimiento\n      y estadística aplicada — con visualizaciones interactivas para explorar\n      los datos por tu cuenta.\n    \n    \n      16S rRNA\n      QIIME2\n      R · Python\n      Metagenómica\n      Shiny\n    \n  \n\n\n\n\n\n\n\n   \n    \n    \n      Order By\n      Default\n      \n        Title\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nUn viaje microscópico por el cuerpo humano\n\n\nPor qué la lengua y las manos no comparten el mismo universo microbiano\n\n8 min\n\n\nmicrobioma\n\nQIIME2\n\n16S rRNA\n\ndiversidad\n\nR\n\nShiny\n\n\n\n\nMay 15, 2026\n\n\n\n\n\n\nNo matching items"
+  }
+]

@@ -1,0 +1,54 @@
+project:
+  type: website
+  output-dir: _site
+
+website:
+  title: "Microbiota con K"
+  description: "Análisis de microbioma y genómica aplicada"
+  favicon: assets/favicon.ico
+  site-url: "https://https://connect.posit.cloud/mikrobiotaconk"   # ← cambia por tu URL real
+  page-navigation: true
+
+  navbar:
+    left:
+      - text: "Posts"
+        href: index.qmd
+      - text: "Sobre mí"
+        href: about.qmd
+    right:
+      - icon: github
+        href: https://github.com/mikrobiotaconk
+        aria-label: GitHub
+      - icon: linkedin
+        href: www.linkedin.com/in/microkiota-con-k-a00a6b40b
+        aria-label: LinkedIn
+
+  page-footer:
+    left: "© 2026 Mikrobiota con K"
+    right:
+      - text: "Hecho con Quarto"
+        href: https://quarto.org
+
+# ── Formato global (HTML estático, sin Shiny) ────────────────────────────
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+    toc-depth: 3
+    toc-title: "Contenidos"
+    toc-location: left
+    smooth-scroll: true
+    code-fold: true
+    code-summary: "Ver código"
+    fig-align: center
+    fig-width: 8
+    fig-height: 5
+    link-external-newwindow: true
+    embed-resources: true     # estático: todo autocontenido
+
+execute:
+  echo: false
+  warning: false
+  message: false
+  freeze: auto

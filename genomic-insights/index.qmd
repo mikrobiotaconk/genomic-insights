@@ -1,0 +1,37 @@
+---
+title: "Genomic Insights"
+listing:
+  contents: posts
+  sort: "date desc"
+  type: grid
+  grid-columns: 2
+  categories: true
+  sort-ui: true
+  filter-ui: true
+  fields: [image, date, title, subtitle, categories, reading-time]
+  image-height: "200px"
+  feed: true
+page-layout: full
+title-block-banner: false
+---
+
+```{=html}
+<div class="hero-banner">
+  <div class="hero-inner">
+    <p class="hero-kicker">Portfolio · Bioinformática & Genómica</p>
+    <h1 class="hero-title">Genomic Insights</h1>
+    <p class="hero-sub">
+      Análisis reproducibles de microbioma, secuenciación de alto rendimiento
+      y estadística aplicada — con visualizaciones interactivas para explorar
+      los datos por tu cuenta.
+    </p>
+    <div class="hero-tags">
+      <span class="htag">16S rRNA</span>
+      <span class="htag">QIIME2</span>
+      <span class="htag">R · Python</span>
+      <span class="htag">Metagenómica</span>
+      <span class="htag">Shiny</span>
+    </div>
+  </div>
+</div>
+```

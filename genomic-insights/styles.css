@@ -1,0 +1,285 @@
+/* ══════════════════════════════════════════════════════════════════════
+   Genomic Insights · estilos globales
+   Referenciado en _quarto.yml como css: styles.css
+   ══════════════════════════════════════════════════════════════════════ */
+
+@import url@import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Momo+Trust+Display&display=swap');
+
+
+/* ── Variables ───────────────────────────────────────────────────────── */
+:root {
+  --verde:       #1D9E75;
+  --verde-dark:  #085041;
+  --verde-mid:   #0F6E56;
+  --verde-light: #E1F5EE;
+  --azul:        #378ADD;
+  --amarillo:    #FAC775;
+  --rosa:        #D4537E;
+  --texto:       #1a1a1a;
+  --muted:       #666;
+  --borde:       #e0e0dc;
+  --fondo-alt:   #f9f9f7;
+}
+
+/* ── Tipografía ──────────────────────────────────────────────────────── */
+body {
+  font-family: "Arimo", sans-serif;
+  font-weight: 300;
+  color: var(--texto);
+  line-height: 1.85;
+}
+h1, h2, h3, h4 {
+  font-family: "Momo Trust Display", sans-serif;
+  font-weight: 600;
+  color: var(--verde-mid);
+}
+a { color: var(--verde); }
+a:hover { color: var(--verde-dark); }
+
+/* ── Navbar ──────────────────────────────────────────────────────────── */
+.navbar {
+  border-bottom: 1px solid var(--borde);
+  background: #fff !important;
+}
+.navbar-brand {
+  font-family: "Momo Trust Display", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--verde) !important;
+}
+.navbar .nav-link { color: var(--texto) !important; font-size: 0.9rem; }
+.navbar .nav-link:hover { color: var(--verde) !important; }
+
+/* ── Hero banner (index.qmd) ─────────────────────────────────────────── */
+.hero-banner {
+  background: linear-gradient(135deg, #085041 0%, #1D9E75 60%, #5DCAA5 100%);
+  border-radius: 16px;
+  padding: 3.5rem 3rem;
+  margin-bottom: 3rem;
+  color: white;
+}
+.hero-kicker {
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  opacity: 0.8;
+  margin-bottom: 0.75rem;
+}
+.hero-title {
+  font-family: "Momo Trust Display", sans-serif;
+  font-size: 2.8rem;
+  font-weight: 600;
+  color: white;
+  line-height: 1.15;
+  margin-bottom: 1rem;
+}
+.hero-sub {
+  font-size: 1.05rem;
+  font-weight: 300;
+  opacity: 0.9;
+  max-width: 580px;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+.hero-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.htag {
+  background: rgba(255,255,255,0.2);
+  color: white;
+  font-size: 0.72rem;
+  padding: 4px 12px;
+  border-radius: 20px;
+}
+
+/* ── Tarjetas de posts (listing) ─────────────────────────────────────── */
+.quarto-grid-item {
+  border: 0.5px solid var(--borde) !important;
+  border-radius: 12px !important;
+  overflow: hidden;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+.quarto-grid-item:hover {
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  transform: translateY(-2px);
+}
+.quarto-grid-item .card-title {
+  font-family: "Momo Trust Display", sans-serif;
+  font-size: 1.05rem;
+}
+.listing-category {
+  background: var(--verde-light) !important;
+  color: var(--verde-dark) !important;
+  border: none !important;
+  font-size: 0.7rem !important;
+}
+
+/* ── Post individual ─────────────────────────────────────────────────── */
+.quarto-title { font-size: 2.1rem; line-height: 1.2; }
+.quarto-title-block {
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--borde);
+  margin-bottom: 2rem;
+}
+.quarto-title-meta { font-size: 0.82rem; color: var(--muted); }
+
+/* ── Chips / tags ────────────────────────────────────────────────────── */
+.tag {
+  display: inline-block;
+  background: var(--verde-light);
+  color: var(--verde-dark);
+  font-size: 0.72rem;
+  padding: 3px 10px;
+  border-radius: 20px;
+  margin: 2px 4px 2px 0;
+}
+
+/* ── Callout editorial ───────────────────────────────────────────────── */
+.callout-verde {
+  border-left: 4px solid var(--verde);
+  background: var(--verde-light);
+  padding: 1rem 1.25rem;
+  border-radius: 0 8px 8px 0;
+  color: var(--verde-dark);
+  font-style: italic;
+  margin: 1.5rem 0;
+  line-height: 1.7;
+}
+
+/* ── KPI cards ───────────────────────────────────────────────────────── */
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+  margin: 1.5rem 0;
+}
+.stat-card {
+  background: var(--fondo-alt);
+  border-radius: 10px;
+  padding: 1rem;
+  text-align: center;
+}
+.stat-val {
+  font-family: "Momo Trust Display", sans-serif;
+  font-size: 1.8rem;
+  color: var(--verde);
+  display: block;
+}
+.stat-lbl {
+  font-size: 0.72rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  display: block;
+}
+.stat-sub { font-size: 0.7rem; color: var(--verde-mid); display: block; }
+
+/* ── Pipeline ────────────────────────────────────────────────────────── */
+.pipeline {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin: 1rem 0;
+  font-size: 0.8rem;
+}
+.pipe-step {
+  background: var(--verde-light);
+  color: var(--verde-dark);
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-weight: 500;
+}
+.pipe-arrow { color: #aaa; }
+
+/* ── Notas de figura ─────────────────────────────────────────────────── */
+.fig-nota {
+  font-size: 0.78rem;
+  color: var(--muted);
+  font-style: italic;
+  margin-top: 0.5rem;
+  line-height: 1.5;
+}
+
+/* ── Bloque de app embebida ──────────────────────────────────────────── */
+.app-embed-wrap {
+  border: 0.5px solid var(--borde);
+  border-radius: 14px;
+  overflow: hidden;
+  margin: 2rem 0;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+}
+.app-embed-header {
+  background: var(--fondo-alt);
+  border-bottom: 1px solid var(--borde);
+  padding: 0.65rem 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+.app-embed-header .app-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--verde);
+  display: inline-block;
+  margin-right: 6px;
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.4; }
+}
+.app-embed-header a {
+  color: var(--verde);
+  font-size: 0.78rem;
+  text-decoration: none;
+}
+.app-embed-header a:hover { text-decoration: underline; }
+.app-embed-wrap iframe {
+  width: 100%;
+  border: none;
+  display: block;
+}
+
+/* ── About — skills grid ─────────────────────────────────────────────── */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 14px;
+  margin: 1.5rem 0;
+}
+.skill-group {
+  background: var(--fondo-alt);
+  border-radius: 10px;
+  padding: 1rem 1.1rem;
+}
+.skill-group h4 {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--verde);
+  margin-bottom: 0.4rem;
+  font-family: "Momo Trust Display", sans-serif;
+  font-weight: 500;
+}
+.skill-group p { font-size: 0.85rem; color: var(--muted); margin: 0; line-height: 1.6; }
+
+/* ── Footer ──────────────────────────────────────────────────────────── */
+.page-footer { border-top: 1px solid var(--borde); font-size: 0.82rem; color: var(--muted); }
+
+/* ── TOC ─────────────────────────────────────────────────────────────── */
+#TOC .nav-link { font-size: 0.82rem; color: var(--muted); }
+#TOC .nav-link.active { color: var(--verde); font-weight: 500; }
+#TOC .nav-link:hover { color: var(--verde); }
+
+/* ── Código ──────────────────────────────────────────────────────────── */
+pre { border-radius: 8px; font-size: 0.82rem; }
+code { font-size: 0.85em; color: var(--verde-dark); }
+
+/* ── Responsive ──────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .hero-banner { padding: 2rem 1.5rem; }
+  .hero-title  { font-size: 2rem; }
+  .quarto-title { font-size: 1.7rem; }
+  .stats-row { grid-template-columns: repeat(2, 1fr); }
+  .app-embed-wrap iframe { height: 600px !important; }
+}

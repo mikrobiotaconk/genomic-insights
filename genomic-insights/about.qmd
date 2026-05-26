@@ -1,0 +1,55 @@
+---
+title: "Sobre mí"
+image: avatar.png
+about:
+  template: trestles
+  image-shape: round
+  links:
+    - icon: instagram
+      text: Instagram
+      href: https://www.instagram.com/mikrobiotaconk/
+    - icon: linkedin
+      text: LinkedIn
+      href: www.linkedin.com/in/microkiota-con-k-a00a6b40b/
+    - icon: envelope
+      text: Email
+      href: mailto:mikrobiotaconk@gmail.com
+---
+
+## Hola, soy Mikrobiota con K 👋
+
+Exploro el mundo invisible de los microorganismos a través de bioinformática, estadística y visualización de datos.
+
+Transformo datos de secuenciación masiva (metagenómica y genómica microbiana) en resultados interpretables, reproducibles y visualmente claros, conectando biología, computación y análisis estadístico.
+
+## Qué encontrarás aquí
+
+Cada post combina un análisis real con una **app interactiva** donde puedes
+explorar los datos tú mismo: cambiar índices de diversidad, filtrar muestras,
+modificar parámetros del análisis.
+
+Los temas principales que encontrarás son:
+
+- **🧬 Análisis de microbioma y metagenómica** — Procesamiento de datos de secuenciación, análisis taxonómico y funcional, diversidad microbiana
+- **🧪 Genómica comparativa y evolución microbiana** — Filogenia, variantes genómicas, análisis comparativo entre cepas y poblaciones
+- **📊 Estadística aplicada y modelización de datos biológicos** — Diversidad alfa/beta, modelos lineales, análisis multivariante y machine learning en datos ómicos
+- **📈 Visualización y comunicación científica de datos complejos** — Representación clara de resultados bioinformáticos para su interpretación y divulgación
+
+## Stack técnico
+
+```{=html}
+<div class="skills-grid">
+  <div class="skill-group">
+    <h4>Bioinformática</h4>
+    <p>QIIME2 · DADA2 · BLAST · Prokka · DIAMOND · Kraken2</p>
+  </div>
+  <div class="skill-group">
+    <h4>Análisis & estadística</h4>
+    <p>R (vegan, phyloseq, DESeq2)</p>
+  </div>
+  <div class="skill-group">
+    <h4>Visualización</h4>
+    <p>ggplot2 · Shiny · Quarto · Plotly · R Markdown</p>
+  </div>
+</div>
+```
