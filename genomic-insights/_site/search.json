@@ -1,0 +1,107 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Genomic Insights",
+    "section": "",
+    "text": "Portfolio · Bioinformatics & Genomics\n    Genomic Insights\n    \n      Reproducible analyses of microbiome, high-throughput sequencing\n      and applied statistics — with interactive visualisations to explore\n      the data on your own.\n    \n    \n      16S rRNA\n      QIIME2\n      R · Python\n      Metagenomics\n      Shiny\n    \n  \n\n\n\n\n\n\n\n   \n    \n    \n      Order By\n      Default\n      \n        Title\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nA Microscopic Journey Through the Human Body\n\n\nWhy your tongue and your hands don’t share the same microbial universe\n\n8 min\n\n\nmicrobiome\n\nQIIME2\n\n16S rRNA\n\ndiversity\n\nR\n\nShiny\n\n\n\n\nMay 15, 2026\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "posts/moving-pictures/index.html",
+    "href": "posts/moving-pictures/index.html",
+    "title": "A Microscopic Journey Through the Human Body",
+    "section": "",
+    "text": "16S rRNA · V4 QIIME2 α/β Diversity Longitudinal Interactive App\nIf we could shrink down to the size of a bacterium and explore the human body like microscopic adventurers, we would discover something no biology textbook quite captures: every part of the body is a different planet.\nThe tongue looks nothing like the skin. The palm of your hand looks nothing like the gut. And every corner of the body selects, with brutal precision, who gets to live there.\nIn microbiology, this has a name: microbial diversity. And when we measure it with high-throughput sequencing, the human body stops looking like a uniform organism and becomes something far more interesting:"
+  },
+  {
+    "objectID": "posts/moving-pictures/index.html#the-body-as-a-collection-of-ecosystems",
+    "href": "posts/moving-pictures/index.html#the-body-as-a-collection-of-ecosystems",
+    "title": "A Microscopic Journey Through the Human Body",
+    "section": "🌍 The body as a collection of ecosystems",
+    "text": "🌍 The body as a collection of ecosystems\nThink about the difference between a desert and a tropical rainforest. Both are on the same planet, but they have different humidity, different temperature, different nutrients — and completely different organisms adapted to each environment.\nThe exact same thing happens inside you.\nThe skin of your hands is a relatively dry environment, exposed to air, soap, and constant temperature changes. A hostile habitat where only the most resilient survive — mainly bacteria from the phyla Actinobacteriota and Proteobacteria, adapted to arid conditions and high environmental exposure.\nThe tongue, by contrast, is another story entirely. Constant moisture, available nutrients, stable temperature, saliva, food remnants and millions of chemical interactions every minute. Microbiologically speaking, it is a true tropical rainforest — dominated by Firmicutes and with a proportion of Fusobacteriota you won’t find anywhere else in the body.\nAnd the gut — that great unknown — operates under its own rules: an anaerobic ecosystem where Firmicutes and Bacteroidota maintain a constant balance that affects everything from digestion to immune response."
+  },
+  {
+    "objectID": "posts/moving-pictures/index.html#how-we-measure-the-invisible",
+    "href": "posts/moving-pictures/index.html#how-we-measure-the-invisible",
+    "title": "A Microscopic Journey Through the Human Body",
+    "section": "🔬 How we measure the invisible",
+    "text": "🔬 How we measure the invisible\nTo quantify these differences we use high-throughput sequencing of the 16S rRNA gene (V4 region), the standard molecular marker in microbiome studies. This gene acts as a biological barcode: each group of bacteria has a slightly different version, which allows us to identify them without needing to culture them in the lab.\nThe analysis pipeline followed the standard QIIME2 workflow:\n\n\n\n\n  Paired-end import\n  →\n  DADA2 denoising\n  →\n  770 ASVs\n  →\n  Silva 138 classification\n  →\n  Rarefaction 1,080 reads\n  →\n  α / β diversity in R\n\n\n\n\nThe DADA2 step is critical: instead of clustering sequences into OTUs at 97% similarity (the classic method), it infers exact amplicon sequence variants (ASVs), resolving single-nucleotide differences. This significantly reduces false positives and enables cross-study comparisons without losing taxonomic resolution.\nRarefaction to 1,080 reads normalises sequencing depth across samples — a necessary step to ensure that the diversity differences we observe are biological, not an artefact of how many reads each sample generated."
+  },
+  {
+    "objectID": "posts/moving-pictures/index.html#what-we-found-a-different-world-at-every-body-site",
+    "href": "posts/moving-pictures/index.html#what-we-found-a-different-world-at-every-body-site",
+    "title": "A Microscopic Journey Through the Human Body",
+    "section": "📊 What we found: a different world at every body site",
+    "text": "📊 What we found: a different world at every body site\nThe starting question was simple: do all body areas harbour similar microbial communities? The short answer is no. The long answer is far more interesting.\n\n\n\n\n  \n    Samples analysed\n    34\n    2 subjects × 4 sites × time\n  \n  \n    Unique ASVs\n    770\n    After DADA2 denoising\n  \n  \n    Variance explained\n    68%\n    PERMANOVA · body site\n  \n  \n    Shannon mouth vs skin\n    +78%\n    Higher diversity in tongue\n  \n\n\n\n\nThe most striking difference appears when calculating alpha diversity — a measure of how many distinct species coexist in a single sample and how evenly they are distributed. The Shannon index for the oral cavity (~3.5) exceeds that of the palms (~2.0) by almost 80%. But that is only the beginning.\nWhen we analyse beta diversity — that is, how similar communities are between different samples — the result is even more compelling. Principal coordinates analysis (PCoA) with Bray-Curtis dissimilarity separates samples almost perfectly by body site. A PERMANOVA test confirms that anatomical site explains 68% of the total variation in microbial composition (R² = 0.68, p = 0.001).\nThe key finding worth highlighting: the individual subject explains only 9%.\nIn other words: the microbiome of your mouth resembles the mouth of a stranger more than it resembles your own gut. We are more predictable as a habitat than as individuals.\n\nBody site matters more than the person. Anatomy imposes such restrictive physicochemical conditions that microbial selection converges across different individuals — regardless of their genetics, diet or lifestyle."
+  },
+  {
+    "objectID": "posts/moving-pictures/index.html#the-microbiome-over-time-stable-or-chaotic",
+    "href": "posts/moving-pictures/index.html#the-microbiome-over-time-stable-or-chaotic",
+    "title": "A Microscopic Journey Through the Human Body",
+    "section": "⏱️ The microbiome over time: stable or chaotic?",
+    "text": "⏱️ The microbiome over time: stable or chaotic?\nThis study has a dimension that cross-sectional analyses cannot capture: longitudinal follow-up. Both subjects were sampled over several months, making it possible to observe how their microbiome evolves over time.\nThe gut shows a particularly interesting pattern: despite daily perturbations — dietary changes, stress, environmental variation — diversity fluctuates but tends to recover an individual-specific baseline level. This phenomenon is known as microbial resilience, and it is one of the most important concepts in human microbiome ecology.\nWe also observed the effect of antibiotic use, recorded in the study metadata. Samples collected during antibiotic treatment show sharp drops in diversity — a clear ecological perturbation that, in most cases, the system manages to reverse."
+  },
+  {
+    "objectID": "posts/moving-pictures/index.html#the-mouth-a-microscopic-coral-reef",
+    "href": "posts/moving-pictures/index.html#the-mouth-a-microscopic-coral-reef",
+    "title": "A Microscopic Journey Through the Human Body",
+    "section": "👅 The mouth: a microscopic coral reef",
+    "text": "👅 The mouth: a microscopic coral reef\nThe oral cavity deserves special mention. It is not simply “a moist surface” — it is one of the densest and most dynamic microbial ecosystems in the body, where bacteria cooperate, compete, form biofilms and exchange genes.\nEvery meal temporarily alters that environment. Every drink changes the pH. Every brushing partially reshuffles the community. And yet the ecosystem manages to remain relatively stable. The characteristic presence of Fusobacteriota — a phylum virtually absent from skin and gut — is such a clear taxonomic marker that it can identify oral samples from a single look at phylum-level composition."
+  },
+  {
+    "objectID": "posts/moving-pictures/index.html#why-going-beyond-there-are-bacteria-here-matters",
+    "href": "posts/moving-pictures/index.html#why-going-beyond-there-are-bacteria-here-matters",
+    "title": "A Microscopic Journey Through the Human Body",
+    "section": "🧠 Why going beyond “there are bacteria here” matters",
+    "text": "🧠 Why going beyond “there are bacteria here” matters\nThe microbiota is no longer studied as a biological curiosity. We know it influences inflammation, metabolism, immunity and infection. But to understand that role we first need to answer more basic questions: where are they? how many are there? how do they change? what perturbs them?\nThis type of analysis — alpha diversity, beta diversity, taxonomic composition, longitudinal follow-up, effect of covariates such as antibiotic use — is the foundation on which more complex clinical studies are built. Without this scaffolding, correlations between the microbiome and disease lack the ecological context to stand on."
+  },
+  {
+    "objectID": "posts/moving-pictures/index.html#explore-it-yourself",
+    "href": "posts/moving-pictures/index.html#explore-it-yourself",
+    "title": "A Microscopic Journey Through the Human Body",
+    "section": "🔍 Explore it yourself",
+    "text": "🔍 Explore it yourself\nThe text tells the story. But the data speak for themselves.\nIn the interactive explorer below you can reproduce the analyses, change parameters and see how the conclusions shift:\n\nWhich diversity index — Shannon, Simpson, Faith PD — shows the strongest differences between sites?\nHow does PCoA separate samples when you use UniFrac instead of Bray-Curtis?\nDoes diversity recover after antibiotic use if you track it over time?\n\n\n\n\n\nThe interactive explorer lets you change the diversity index,\n     distance metric, and filter by body site or antibiotic use —\n     and see how the conclusions change in real time.\n🔍  Open interactive explorer\nOpens in a new tab · Requires connection to Posit Connect"
+  },
+  {
+    "objectID": "posts/moving-pictures/index.html#one-last-thought",
+    "href": "posts/moving-pictures/index.html#one-last-thought",
+    "title": "A Microscopic Journey Through the Human Body",
+    "section": "✨ One last thought",
+    "text": "✨ One last thought\nPerhaps the most powerful conclusion of this analysis is not statistical. It is conceptual.\nThe human body is not a single ecosystem. It is a collection of microscopic worlds coexisting simultaneously, each with its own selection rules, its own evolutionary history, and its own response to perturbations.\nThe next time you run your tongue over your teeth or rest your hand on a table, remember: billions of microorganisms just participated in an ecological interaction that happens constantly — and that we are only beginning to understand."
+  },
+  {
+    "objectID": "posts/moving-pictures/index.html#references",
+    "href": "posts/moving-pictures/index.html#references",
+    "title": "A Microscopic Journey Through the Human Body",
+    "section": "References",
+    "text": "References\nCaporaso et al. (2011) Moving pictures of the human microbiome. Genome Biology 12:R50.\nBolyen et al. (2019) Reproducible microbiome data science using QIIME 2. Nature Biotechnology.\nCallahan et al. (2016) DADA2: High-resolution sample inference from Illumina amplicon data. Nature Methods.\nQuast et al. (2013) The SILVA ribosomal RNA gene database project. Nucleic Acids Research."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "I explore the invisible world of microorganisms through bioinformatics, statistics and data visualisation.\nI transform high-throughput sequencing data (metagenomics and microbial genomics) into interpretable, reproducible and visually clear results — bridging biology, computation and statistical analysis."
+  },
+  {
+    "objectID": "about.html#hi-im-mikrobiota-con-k",
+    "href": "about.html#hi-im-mikrobiota-con-k",
+    "title": "About",
+    "section": "",
+    "text": "I explore the invisible world of microorganisms through bioinformatics, statistics and data visualisation.\nI transform high-throughput sequencing data (metagenomics and microbial genomics) into interpretable, reproducible and visually clear results — bridging biology, computation and statistical analysis."
+  },
+  {
+    "objectID": "about.html#what-youll-find-here",
+    "href": "about.html#what-youll-find-here",
+    "title": "About",
+    "section": "What you’ll find here",
+    "text": "What you’ll find here\nEach post combines a real analysis with an interactive app where you can explore the data yourself: change diversity indices, filter samples, modify analysis parameters.\nThe main topics you’ll find are:\n\n🧬 Microbiome and metagenomics analysis — Sequencing data processing, taxonomic and functional analysis, microbial diversity\n🧪 Comparative genomics and microbial evolution — Phylogeny, genomic variants, comparative analysis across strains and populations\n📊 Applied statistics and biological data modelling — Alpha/beta diversity, linear models, multivariate analysis and machine learning on omics data\n📈 Visualisation and scientific communication of complex data — Clear representation of bioinformatic results for interpretation and outreach"
+  },
+  {
+    "objectID": "about.html#tech-stack",
+    "href": "about.html#tech-stack",
+    "title": "About",
+    "section": "Tech stack",
+    "text": "Tech stack\n\n  \n    Bioinformatics\n    QIIME2 · DADA2 · BLAST · Prokka · DIAMOND · Kraken2\n  \n  \n    Analysis & statistics\n    R (vegan, phyloseq, DESeq2)\n  \n  \n    Visualisation\n    ggplot2 · Shiny · Quarto · Plotly · R Markdown"
+  }
+]
