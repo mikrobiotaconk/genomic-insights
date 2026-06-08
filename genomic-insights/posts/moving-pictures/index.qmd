@@ -1,5 +1,5 @@
 ---
-title: "A Microscopic Journey Through the Human Body"
+title: "A microscopic journey through the human body"
 subtitle: "Why your tongue and your hands don't share the same microbial universe"
 description: "Metagenomic analysis of the Moving Pictures dataset: microbial diversity across four body sites, with an interactive results explorer."
 author: "Mikrobiota con K"
