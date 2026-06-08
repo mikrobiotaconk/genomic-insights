@@ -1,0 +1,37 @@
+---
+title: "Genomic Insights"
+listing:
+  contents: posts
+  sort: "date desc"
+  type: grid
+  grid-columns: 2
+  categories: true
+  sort-ui: true
+  filter-ui: true
+  fields: [image, date, title, subtitle, categories, reading-time]
+  image-height: "200px"
+  feed: true
+page-layout: full
+title-block-banner: false
+---
+
+```{=html}
+<div class="hero-banner">
+  <div class="hero-inner">
+    <p class="hero-kicker">Portfolio · Bioinformatics & Genomics</p>
+    <h1 class="hero-title">Genomic Insights</h1>
+    <p class="hero-sub">
+      Reproducible analyses of microbiome, high-throughput sequencing
+      and applied statistics — with interactive visualisations to explore
+      the data on your own.
+    </p>
+    <div class="hero-tags">
+      <span class="htag">16S rRNA</span>
+      <span class="htag">QIIME2</span>
+      <span class="htag">R · Python</span>
+      <span class="htag">Metagenomics</span>
+      <span class="htag">Shiny</span>
+    </div>
+  </div>
+</div>
+```
