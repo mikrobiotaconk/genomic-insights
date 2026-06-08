@@ -4,7 +4,7 @@ project:
 
 website:
   title: "Microbiota con K"
-  description: "Análisis de microbioma y genómica aplicada"
+  description: "Microbiome analysis and applied genomics"
   favicon: assets/favicon.ico
   site-url: "https://https://connect.posit.cloud/mikrobiotaconk"   # ← cambia por tu URL real
   page-navigation: true
@@ -13,7 +13,7 @@ website:
     left:
       - text: "Posts"
         href: index.qmd
-      - text: "Sobre mí"
+      - text: "About me"
         href: about.qmd
     right:
       - icon: github
@@ -26,7 +26,7 @@ website:
   page-footer:
     left: "© 2026 Mikrobiota con K"
     right:
-      - text: "Hecho con Quarto"
+      - text: "Done with Quarto"
         href: https://quarto.org
 
 # ── Formato global (HTML estático, sin Shiny) ────────────────────────────
