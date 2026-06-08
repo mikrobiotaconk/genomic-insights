@@ -1,0 +1,55 @@
+---
+title: "About"
+image: avatar.png
+about:
+  template: trestles
+  image-shape: round
+  links:
+    - icon: instagram
+      text: Instagram
+      href: https://www.instagram.com/mikrobiotaconk/
+    - icon: linkedin
+      text: LinkedIn
+      href: www.linkedin.com/in/microkiota-con-k-a00a6b40b/
+    - icon: envelope
+      text: Email
+      href: mailto:mikrobiotaconk@gmail.com
+---
+
+## Hi, I'm Mikrobiota con K 👋
+
+I explore the invisible world of microorganisms through bioinformatics, statistics and data visualisation.
+
+I transform high-throughput sequencing data (metagenomics and microbial genomics) into interpretable, reproducible and visually clear results — bridging biology, computation and statistical analysis.
+
+## What you'll find here
+
+Each post combines a real analysis with an **interactive app** where you can
+explore the data yourself: change diversity indices, filter samples,
+modify analysis parameters.
+
+The main topics you'll find are:
+
+- **🧬 Microbiome and metagenomics analysis** — Sequencing data processing, taxonomic and functional analysis, microbial diversity
+- **🧪 Comparative genomics and microbial evolution** — Phylogeny, genomic variants, comparative analysis across strains and populations
+- **📊 Applied statistics and biological data modelling** — Alpha/beta diversity, linear models, multivariate analysis and machine learning on omics data
+- **📈 Visualisation and scientific communication of complex data** — Clear representation of bioinformatic results for interpretation and outreach
+
+## Tech stack
+
+```{=html}
+<div class="skills-grid">
+  <div class="skill-group">
+    <h4>Bioinformatics</h4>
+    <p>QIIME2 · DADA2 · BLAST · Prokka · DIAMOND · Kraken2</p>
+  </div>
+  <div class="skill-group">
+    <h4>Analysis & statistics</h4>
+    <p>R (vegan, phyloseq, DESeq2)</p>
+  </div>
+  <div class="skill-group">
+    <h4>Visualisation</h4>
+    <p>ggplot2 · Shiny · Quarto · Plotly · R Markdown</p>
+  </div>
+</div>
+```
