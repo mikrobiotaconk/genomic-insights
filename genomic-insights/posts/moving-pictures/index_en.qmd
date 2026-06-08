@@ -1,0 +1,296 @@
+---
+title: "A Microscopic Journey Through the Human Body"
+subtitle: "Why your tongue and your hands don't share the same microbial universe"
+description: "Metagenomic analysis of the Moving Pictures dataset: microbial diversity across four body sites, with an interactive results explorer."
+author: "Mikrobiota con K"
+date: "2026-05-15"
+categories: [microbiome, QIIME2, 16S rRNA, diversity, R, Shiny]
+image: "post1_1.jpg"
+reading-time: true
+---
+
+```{r setup, include=FALSE}
+library(ggplot2)
+library(dplyr)
+library(tidyr)
+library(scales)
+
+APP_URL <- "https://mikrobiotaconk.shinyapps.io/moving-pictures-app-v3/"
+```
+
+---
+
+<span class="tag">16S rRNA · V4</span>
+<span class="tag">QIIME2</span>
+<span class="tag">α/β Diversity</span>
+<span class="tag">Longitudinal</span>
+<span class="tag">Interactive App</span>
+
+<br>
+
+If we could shrink down to the size of a bacterium and explore the human body
+like microscopic adventurers, we would discover something no biology textbook
+quite captures: **every part of the body is a different planet**.
+
+The tongue looks nothing like the skin.
+The palm of your hand looks nothing like the gut.
+And every corner of the body selects, with brutal precision, who gets to live there.
+
+In microbiology, this has a name: **microbial diversity**. And when we measure it
+with high-throughput sequencing, the human body stops looking like a uniform
+organism and becomes something far more interesting:
+
+::: callout-verde
+A planet full of microscopic habitats, each with its own rules,
+its own inhabitants, and its own ecological logic.
+:::
+
+## 🌍 The body as a collection of ecosystems
+
+Think about the difference between a desert and a tropical rainforest. Both are
+on the same planet, but they have different humidity, different temperature,
+different nutrients — and completely different organisms adapted to each
+environment.
+
+The exact same thing happens inside you.
+
+The **skin of your hands** is a relatively dry environment, exposed to air,
+soap, and constant temperature changes. A hostile habitat where only the most
+resilient survive — mainly bacteria from the phyla
+*Actinobacteriota* and *Proteobacteria*, adapted to arid conditions and high
+environmental exposure.
+
+The **tongue**, by contrast, is another story entirely. Constant moisture,
+available nutrients, stable temperature, saliva, food remnants and millions of
+chemical interactions every minute. Microbiologically speaking, it is a true
+tropical rainforest — dominated by *Firmicutes* and with a proportion of
+*Fusobacteriota* you won't find anywhere else in the body.
+
+And the **gut** — that great unknown — operates under its own rules:
+an anaerobic ecosystem where *Firmicutes* and *Bacteroidota* maintain a
+constant balance that affects everything from digestion to immune response.
+
+## 🔬 How we measure the invisible
+
+To quantify these differences we use high-throughput sequencing of the
+**16S rRNA gene** (V4 region), the standard molecular marker in microbiome
+studies. This gene acts as a biological barcode: each group of bacteria has a
+slightly different version, which allows us to identify them without needing
+to culture them in the lab.
+
+The analysis pipeline followed the standard **QIIME2** workflow:
+
+```{r pipeline, echo=FALSE}
+htmltools::HTML('
+<div class="pipeline">
+  <span class="pipe-step">Paired-end import</span>
+  <span class="pipe-arrow">→</span>
+  <span class="pipe-step">DADA2 denoising</span>
+  <span class="pipe-arrow">→</span>
+  <span class="pipe-step">770 ASVs</span>
+  <span class="pipe-arrow">→</span>
+  <span class="pipe-step">Silva 138 classification</span>
+  <span class="pipe-arrow">→</span>
+  <span class="pipe-step">Rarefaction 1,080 reads</span>
+  <span class="pipe-arrow">→</span>
+  <span class="pipe-step">α / β diversity in R</span>
+</div>
+')
+```
+
+The **DADA2** step is critical: instead of clustering sequences into OTUs at
+97% similarity (the classic method), it infers **exact amplicon sequence
+variants** (ASVs), resolving single-nucleotide differences. This significantly
+reduces false positives and enables cross-study comparisons without losing
+taxonomic resolution.
+
+**Rarefaction to 1,080 reads** normalises sequencing depth across samples —
+a necessary step to ensure that the diversity differences we observe are
+biological, not an artefact of how many reads each sample generated.
+
+## 📊 What we found: a different world at every body site
+
+The starting question was simple: do all body areas harbour similar microbial
+communities? The short answer is **no**. The long answer is far more
+interesting.
+
+```{r kpis, echo=FALSE}
+htmltools::HTML('
+<div class="stats-row">
+  <div class="stat-card">
+    <span class="stat-lbl">Samples analysed</span>
+    <span class="stat-val">34</span>
+    <span class="stat-sub">2 subjects × 4 sites × time</span>
+  </div>
+  <div class="stat-card">
+    <span class="stat-lbl">Unique ASVs</span>
+    <span class="stat-val">770</span>
+    <span class="stat-sub">After DADA2 denoising</span>
+  </div>
+  <div class="stat-card">
+    <span class="stat-lbl">Variance explained</span>
+    <span class="stat-val">68%</span>
+    <span class="stat-sub">PERMANOVA · body site</span>
+  </div>
+  <div class="stat-card">
+    <span class="stat-lbl">Shannon mouth vs skin</span>
+    <span class="stat-val">+78%</span>
+    <span class="stat-sub">Higher diversity in tongue</span>
+  </div>
+</div>
+')
+```
+
+The most striking difference appears when calculating **alpha diversity** —
+a measure of how many distinct species coexist in a single sample and how
+evenly they are distributed. The Shannon index for the oral cavity (~3.5)
+exceeds that of the palms (~2.0) by almost 80%. But that is only the beginning.
+
+When we analyse **beta diversity** — that is, how similar communities are
+*between* different samples — the result is even more compelling.
+Principal coordinates analysis (PCoA) with Bray-Curtis dissimilarity separates
+samples almost perfectly by body site. A PERMANOVA test confirms that anatomical
+site explains **68% of the total variation in microbial composition**
+(R² = 0.68, p = 0.001).
+
+The key finding worth highlighting: **the individual subject explains only 9%**.
+
+In other words: the microbiome of your mouth resembles the mouth of a stranger
+more than it resembles your own gut. We are more predictable as a habitat than
+as individuals.
+
+::: callout-verde
+**Body site matters more than the person.** Anatomy imposes such restrictive
+physicochemical conditions that microbial selection converges across different
+individuals — regardless of their genetics, diet or lifestyle.
+:::
+
+## ⏱️ The microbiome over time: stable or chaotic?
+
+This study has a dimension that cross-sectional analyses cannot capture:
+**longitudinal follow-up**. Both subjects were sampled over several months,
+making it possible to observe how their microbiome evolves over time.
+
+The gut shows a particularly interesting pattern: despite daily perturbations —
+dietary changes, stress, environmental variation — diversity fluctuates but
+tends to recover an individual-specific baseline level. This phenomenon is known
+as **microbial resilience**, and it is one of the most important concepts in
+human microbiome ecology.
+
+We also observed the effect of **antibiotic use**, recorded in the study
+metadata. Samples collected during antibiotic treatment show sharp drops in
+diversity — a clear ecological perturbation that, in most cases, the system
+manages to reverse.
+
+## 👅 The mouth: a microscopic coral reef
+
+The oral cavity deserves special mention. It is not simply "a moist surface"
+— it is one of the densest and most dynamic microbial ecosystems in the body,
+where bacteria cooperate, compete, form biofilms and exchange genes.
+
+Every meal temporarily alters that environment. Every drink changes the pH.
+Every brushing partially reshuffles the community. And yet the ecosystem
+manages to remain relatively stable. The characteristic presence of
+*Fusobacteriota* — a phylum virtually absent from skin and gut — is such a
+clear taxonomic marker that it can identify oral samples from a single look
+at phylum-level composition.
+
+## 🧠 Why going beyond "there are bacteria here" matters
+
+The microbiota is no longer studied as a biological curiosity. We know it
+influences inflammation, metabolism, immunity and infection. But to understand
+that role we first need to answer more basic questions: where are they? how
+many are there? how do they change? what perturbs them?
+
+This type of analysis — alpha diversity, beta diversity, taxonomic composition,
+longitudinal follow-up, effect of covariates such as antibiotic use — is
+the foundation on which more complex clinical studies are built. Without this
+scaffolding, correlations between the microbiome and disease lack the ecological
+context to stand on.
+
+---
+
+## 🔍 Explore it yourself
+
+The text tells the story. But the data speak for themselves.
+
+In the interactive explorer below you can reproduce the analyses,
+change parameters and see how the conclusions shift:
+
+- **Which diversity index** — Shannon, Simpson, Faith PD — shows
+  the strongest differences between sites?
+- **How does PCoA separate** samples when you use UniFrac instead of
+  Bray-Curtis?
+- **Does diversity recover** after antibiotic use if you track it over time?
+
+```{r app-embed, echo=FALSE}
+htmltools::tags$div(
+  style = "margin: 2rem 0;",
+  
+  # Static preview image
+  htmltools::tags$img(
+    src   = "post1.jpg",
+    style = "width:100%; border-radius:12px; margin-bottom:1.5rem;
+             box-shadow: 0 4px 20px rgba(0,0,0,0.08);"
+  ),
+  
+  # Short description
+  htmltools::tags$p(
+    style = "font-size:0.95rem; color:#555; margin-bottom:1.25rem; line-height:1.7;",
+    "The interactive explorer lets you change the diversity index,
+     distance metric, and filter by body site or antibiotic use —
+     and see how the conclusions change in real time."
+  ),
+  
+  # Button
+  htmltools::tags$a(
+    href   = APP_URL,
+    target = "_blank",
+    style  = "display:inline-block; background:#1D9E75; color:white;
+               font-size:1rem; padding:0.85rem 2rem; border-radius:8px;
+               text-decoration:none; font-weight:500;
+               box-shadow: 0 4px 12px rgba(29,158,117,0.3);
+               transition: background 0.2s ease;",
+    "🔍  Open interactive explorer"
+  ),
+  
+  # Footnote
+  htmltools::tags$p(
+    style = "font-size:0.75rem; color:#aaa; margin-top:0.75rem;",
+    "Opens in a new tab · Requires connection to Posit Connect"
+  )
+)
+```
+
+---
+
+## ✨ One last thought
+
+Perhaps the most powerful conclusion of this analysis is not statistical.
+It is conceptual.
+
+The human body is not a single ecosystem.
+It is a collection of microscopic worlds coexisting simultaneously,
+each with its own selection rules, its own evolutionary history,
+and its own response to perturbations.
+
+The next time you run your tongue over your teeth or rest your hand on a table,
+remember: billions of microorganisms just participated in an ecological
+interaction that happens constantly — and that we are only beginning to
+understand.
+
+---
+
+## References
+
+Caporaso et al. (2011) Moving pictures of the human microbiome.
+*Genome Biology* 12:R50.
+
+Bolyen et al. (2019) Reproducible microbiome data science using QIIME 2.
+*Nature Biotechnology.*
+
+Callahan et al. (2016) DADA2: High-resolution sample inference from
+Illumina amplicon data. *Nature Methods.*
+
+Quast et al. (2013) The SILVA ribosomal RNA gene database project.
+*Nucleic Acids Research.*
